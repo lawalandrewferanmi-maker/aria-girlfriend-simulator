@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aria ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:22px;background:linear-gradient(145deg,#21152e,#49304e,#242747);color:white;font-family:Arial,sans-serif;text-align:center;min-height:100vh}
+main{max-width:500px;margin:auto}
+.avatar{font-size:65px;margin-top:35px}
+h1{font-size:36px;margin-bottom:5px;color:#ffb5d0}
+.sub{color:#ddd;margin-bottom:25px}
+.card{background:#ffffff16;border:1px solid #ffffff25;border-radius:20px;padding:20px;margin:15px 0}
+p{line-height:1.6;font-size:17px}
+button{width:100%;padding:15px;margin:7px 0;border:0;border-radius:14px;background:linear-gradient(100deg,#ff9cbe,#c2a0ff);font-size:15px;font-weight:bold;color:#281b30}
+.secondary{background:#ffffff20;color:white;border:1px solid #ffffff30}
+.stats{display:flex;justify-content:space-around;color:#ffc0d8}
+</style>
+</head>
+<body>
+<main>
+<div class="avatar">💗</div>
+<h1>Aria</h1>
+<div class="sub">Your cozy little corner of the day</div>
+
+<div class="card stats">
+<div>💕<br><b id="love">20</b><br>Affection</div>
+<div>✨<br><b id="vibes">80</b><br>Good vibes</div>
+<div>🌷<br><b id="moments">0</b><br>Moments</div>
+</div>
+
+<div class="card">
+<h3>💬 A little moment</h3>
+<p id="scene">Hey babe! I'm glad you're here. What should we do together today?</p>
+<div id="choices">
+<button onclick="activity('movie')">🍿 Movie night</button>
+<button onclick="activity('cook')">🍳 Cook together</button>
+<button onclick="activity('game')">🎮 Play a game</button>
+</div>
+</div>
+
+<div class="card">
+<h3>💕 Show some affection</h3>
+<button onclick="hug()">🫂 Give Aria a hug</button>
+<button onclick="compliment()">💌 Give Aria a compliment</button>
+</div>
+
+<div class="card">
+<h3>🌙 A reminder for you</h3>
+<p id="reminder">You deserve kindness, laughter and people who appreciate you. Never forget that. ❤️</p>
+<button class="secondary" onclick="remind()">Another reminder</button>
+</div>
+<p style="font-size:11px;color:#bbb">A playful fictional companion game. Your choices stay on this device.</p>
+</main>
+
+<script>
+let love=20,vibes=80,moments=0;
+function update(){
+document.getElementById('love').textContent=love;
+document.getElementById('vibes').textContent=vibes;
+document.getElementById('moments').textContent=moments;
+}
+function activity(type){
+let options={
+movie:"Aria grabs the popcorn. “You choose the movie, babe. But if it's boring, I'm stealing the remote!” 🍿",
+cook:"Aria puts on an imaginary apron. “You cook, I'll handle quality control. Deal?” 😋",
+game:"Aria grins. “You really think you can beat me? Bring your A-game!” 🎮"
+};
+document.getElementById('scene').textContent=options[type];
+love=Math.min(100,love+5);vibes=Math.min(100,vibes+3);moments++;update();
+}
+function hug(){
+document.getElementById('scene').textContent="Aria sends you the biggest virtual hug. “There you go, babe. Don't let go just yet.” 🫂";
+love=Math.min(100,love+8);moments++;update();
+}
+function compliment(){
+document.getElementById('scene').textContent="Aria smiles. “Aww, you're sweet. You're making me blush. 😉”";
+love=Math.min(100,love+8);moments++;update();
+}
+function remind(){
+let a=["Your creativity deserves room to grow. Keep creating. 🎨","You don't have to be perfect to be appreciated. ❤️","Take life one step at a time. You're doing better than you think. 🌱","You deserve happiness, even on difficult days. ☀️"];
+document.getElementById('reminder').textContent=a[Math.floor(Math.random()*a.length)];
+}
+update();
+</script>
+</body>
+  </html>
